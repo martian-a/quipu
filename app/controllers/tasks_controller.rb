@@ -82,6 +82,17 @@ class TasksController < ApplicationController
     end
   end
   
+  # GET /all
+  # GET /all.json
+  def all
+    @tasks = Task.all.sort_by(&:created_at)
+
+    respond_to do |format|
+      format.html # all.html.erb
+      format.json { render json: @tasks }
+    end
+  end
+  
   # GET /complete
   # GET /complete.json
   def complete
