@@ -91,7 +91,18 @@ class TasksController < ApplicationController
       format.html # complete.html.erb
       format.json { render json: @tasks }    
     end
-  end  
+  end
+  
+  # GET /incomplete
+  # GET /incomplete.json
+  def incomplete
+    @tasks = Task.incomplete.sort_by(&:deadline)
+    
+    respond_to do |format|
+      format.html # incomplete.html.erb
+      format.json { render json: @tasks }    
+    end
+  end
   
   # GET /overdue
   # GET /overdue.json
