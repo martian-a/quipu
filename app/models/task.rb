@@ -18,5 +18,14 @@ class Task < ActiveRecord::Base
       ]
     )
   end
+  
+	# Returns a list of all tasks that have been completed
+	def self.complete
+  	Task.find(:all,
+    	:conditions => [
+      	'complete = ?', true
+    	]
+  	)
+	end
 
 end

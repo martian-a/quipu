@@ -82,6 +82,17 @@ class TasksController < ApplicationController
     end
   end
   
+  # GET /complete
+  # GET /complete.json
+  def complete
+    @tasks = Task.complete.sort_by(&:deadline).reverse
+    
+    respond_to do |format|
+      format.html # complete.html.erb
+      format.json { render json: @tasks }    
+    end
+  end  
+  
   # GET /overdue
   # GET /overdue.json
   def overdue
