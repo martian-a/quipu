@@ -81,4 +81,15 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /overdue
+  # GET /overdue.json
+  def overdue
+    @tasks = Task.overdue.sort_by(&:deadline)
+    
+    respond_to do |format|
+      format.html # overdue.html.erb
+      format.json { render json: @tasks }    
+    end
+  end
 end

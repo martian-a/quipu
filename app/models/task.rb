@@ -9,5 +9,14 @@ class Task < ActiveRecord::Base
 
 	validates :complete, 
   	:inclusion => {:in =>[true, false]}
-  
+
+  # Returns a list of all tasks that are incomplete and for which the deadline has passed
+  def self.overdue
+    Task.find(:all,
+      :conditions => [
+        'complete = ? and deadline < ?', false, Time.now.utc
+      ]
+    )
+  end
+
 end
