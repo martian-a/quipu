@@ -1,12 +1,12 @@
-<div id="top">
-	<div id="header">
-		<p class="logo"><a href="/" title="Home page">Quipu</a></p>
-		<ul class="site-navigation">			
+<header id="top">
+	<p class="branding"><a href="/" title="Home page">Quipu</a></p>
+	<nav class="global">			
+		<ul>			
 			<li><%= link_to 'To Do', incomplete_tasks_path, html_options = {:title => 'A list of all incomplete tasks'} %></li>
 			<li><%= link_to 'Overdue', overdue_tasks_path, html_options = {:title => 'A list of all overdue tasks'} %></li>			
 			<li><%= link_to 'Done', completed_tasks_path, html_options = {:title => 'A list of all completed tasks'} %></li>
 			<li><%= link_to 'All', all_tasks_path, html_options = {:title => 'A list of all tasks'} %></li>
 			<li><%= link_to 'New Task', new_task_path, html_options = {:title => 'Add a new task to your list'} %></li>						
 		</ul>
-	</div>
-</div>
+	</nav>
+</header>

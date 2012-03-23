@@ -1,29 +1,39 @@
 <%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @task.errors.any? || !notice.nil? %>
+		<section id="notices">
+			<p class="notice"><%= notice %></p>
+			<div class="error">
+				<h1><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h1>
+				<ul>
+					<% @task.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		</section>
+	<% end %>	
 
-  <div class="field">
-    <%= f.label :summary %><br />
-    <%= f.text_field :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :deadline %><br />
-    <%= f.datetime_select :deadline %>
-  </div>
-  <div class="field">
-    <%= f.label :complete %><br />
-    <%= f.check_box :complete %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<fieldset class="details">
+		<legend>Task Details</legend>
+		<div class="field">
+			<h2 class="label"><%= f.label :summary %></h2>
+			<p class="value"><%= f.text_field :summary %></p>
+		</div>
+		<div class="field">
+			<h2 class="label"><%= f.label :deadline %></h2>
+			<p class="value"><%= f.datetime_select(:deadline, :default => 1.day.from_now) %></p>
+		</div>
+		<div class="field">
+			<h2 class="label"><%= f.label :complete %></h2>
+			<p class="value"><%= f.check_box :complete %></p>
+		</div>	
+	</fieldset>	
+	<fieldset class="actions">
+		<legend>Options</legend>
+		<ul>
+			<li><%= link_to 'Cancel', @task %></li>
+			<li><%= f.submit %></li>
+		</ul>		
+	</fieldset>
 <% end %>

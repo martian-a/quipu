@@ -1,6 +1,9 @@
 <% title "Edit Task" %>
 
-<h1><%= yield(:title) %></h1>
+<article>
+	<h1><%= yield(:title) %></h1>
+	<%= render 'form' %>
+</article>
 
-<%= render 'form' %>
-<%= link_to 'Show', @task %> |
+
+
