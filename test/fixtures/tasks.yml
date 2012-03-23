@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+PastComplete:
+  summary: Past, Complete
+  deadline: 2012-03-01 00:01:00
+  complete: true
+
+FutureIncomplete:
+  summary: Future, Incomplete
+  deadline: 2020-03-01 23:59:59
+  complete: false
+
+PastIncomplete:
+  summary: Past, Incomplete
+  deadline: 2012-03-01 00:01:00
+  complete: false
+
+FutureComplete:
+  summary: Future, Complete
+  deadline: 2020-03-01 23:59:59
+  complete: true
+
+NoDeadlineComplete:
+  summary: No Deadline, Complete
+  complete: true
+
+NoDeadlineIncomplete:
+  summary: No Deadline, Incomplete
+  complete: false
