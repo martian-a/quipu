@@ -3,12 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tasks }
-    end
+    redirect_to :controller => 'tasks', :action => 'incomplete'
   end
 
   # GET /tasks/1

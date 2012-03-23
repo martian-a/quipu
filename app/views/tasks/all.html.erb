@@ -1,29 +1,4 @@
-<h1>All Tasks</h1>
+<% title "All Tasks" %>
 
-<table>
-  <tr>
-    <th>Summary</th>
-    <th>Created</th>
-    <th>Deadline</th>
-    <th>Complete</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @tasks.each do |task| %>
-  <tr>
-    <td><%= task.summary %></td>
-    <td><%= task.created_at %></td>
-    <td><%= task.deadline %></td>
-    <td><%= task.complete %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Task', new_task_path %>
+<h1><%= yield(:title) %></h1>
+<%= render 'shared/task_list', :tasks => @tasks %>

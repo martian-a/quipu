@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% title "Task: #{@task.summary}" %>
 
-<p>
-  <b>Summary:</b>
-  <%= @task.summary %>
-</p>
+<h1><%= yield(:title) %></h1>
+
+<p id="notice"><%= notice %></p>
 
 <p>
   <b>Deadline:</b>
@@ -15,6 +14,7 @@
   <%= @task.complete %>
 </p>
 
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<ul class="options">
+	<li><%= link_to 'Edit', edit_task_path(@task) %></li>
+	<li><%= render 'shared/destroy_task', :task => @task %></li>
+</ul>
