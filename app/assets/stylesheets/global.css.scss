@@ -1,0 +1,179 @@
+body {
+	margin: 0;
+	padding: 1em;	
+  background-color: #fff;
+  color: #00ace6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #3366ff;	
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+	background-color: inherit;
+}
+
+a:link,
+a:visited {
+	color: #ff6600;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #d85600;
+}
+  
+.notice {
+  color: green; 
+}
+
+.error {
+  padding: 2px;
+  background-color: red; 
+}
+
+
+/* Header
+-----------------------------*/
+header {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
+
+p.branding, nav.global {
+	display: inline-block;
+}
+
+.branding {
+	font-size: 3em;
+	font-weight: bold;
+	a {
+		text-decoration: none;
+		color: #3399ff;
+		&:hover, &:focus, &:active {
+			color: #33ccff;
+		}
+	}
+	margin-right: .5em;
+}
+nav.global li {
+	display: inline-block;	
+	margin: .15em;
+	vertical-align: super;
+	a {
+		font-size: medium;
+		background-color: #33ccff;
+		border-color: #00ccff;
+		&:hover, &:focus, &:active {								
+			background-color: #ff6600;
+		}
+	}
+}
+
+nav.global li a, .actions a {
+	padding: .25em;		
+	border-radius: .25em;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* Page title
+-----------------------------*/
+.page-title {
+	font-size: 1.5em;
+	margin-bottom: .5em;
+	color: #ff33cc;
+}
+
+
+/* Task list
+-----------------------------*/
+
+th, td {
+	padding: .25em;
+}
+
+th {
+	font-size: small;
+	border: 2px solid #99ccff;
+	border-radius: .25em;
+	color: #0066ff;	
+}
+td {
+	padding: .5em;
+}
+tbody tr:nth-child(2n) {
+	background-color: #ffffcc;
+}
+
+td.summary {
+	min-width: 50%;
+}
+td.option {
+	font-size: small;
+}
+td.status {
+	text-align: center;
+}
+
+
+/* Create/Edit task
+-----------------------------*/
+fieldset {
+	border: 1px solid #33ccff;
+	border-radius: .25em;
+	padding: .5em;
+}
+legend {
+	color: #3399ff;
+	background-color: #ffffff;
+	font-style: normal;
+	font-weight: normal;
+	vertical-align: baseline;
+	padding: 0 2px;
+	line-height: 1.25em;
+	top: -1.2em;
+}
+fieldset.actions {
+	margin-top: 1em;
+	ul {
+		text-align: right;
+		vertical-align: baseline;
+		li {
+			display: inline-block;
+			margin: 0 .5em;
+			&:first-child {
+				margin-left: 0;
+			}			
+		}
+	}	
+}
+.actions li {
+	height: 2em;
+}
+.actions a {
+	padding: .25em .5em;
+	border: 1px solid #ff954e;
+	background-color: #ff954e; 
+	&:hover, &:focus, &:active {								
+		background-color: #ff6600;
+	}	
+}
+
+div.field {
+	padding: .25em;
+	.label {
+		margin-bottom: .25em;
+	}
+}
+
+/* View task
+-----------------------------*/
+.details section, .actions {
+	margin-top: 1em;
+}

@@ -6,22 +6,22 @@
 			<p class="notice"><%= notice %></p>
 		</section>	
 	<% end %>
-	<h1 class="summary"><%= yield(:title) %></h1>
+	<h1 class="page-title summary"><%= yield(:title) %></h1>
 	<section class="details">
 		<section class="deadline">
 			<h1>Deadline</h1>
 			<p><%= @task.deadline.strftime("%A %d %b %Y, %H:%M") %></p>
 		</section>
 		<section class="status">
-			<h1>Status</h1>
+			<h1>Complete</h1>
 			<p><%= yesno(@task.complete?) %></p>
 		</section>				
 	</section>
-	<section class="options">
-		<h1>Options</h1>
+	<fieldset class="actions">
+		<legend>Options</legend>
 		<ul>
 			<li><%= link_to 'Edit', edit_task_path(@task) %></li>
 			<li><%= render 'shared/destroy_task', :task => @task %></li>
 		</ul>
-	</section>
+	</fieldset>
 </article>
