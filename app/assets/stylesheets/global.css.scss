@@ -106,6 +106,7 @@ th {
 }
 td {
 	padding: .5em;
+	text-align: center;
 }
 tbody tr:nth-child(2n) {
 	background-color: #ffffcc;
@@ -117,8 +118,8 @@ td.summary {
 td.option {
 	font-size: small;
 }
-td.status {
-	text-align: center;
+td.summary {
+	text-align: left;
 }
 
 

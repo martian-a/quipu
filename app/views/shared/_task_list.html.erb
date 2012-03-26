@@ -13,7 +13,8 @@
 		    <% if (show_created_at) %><th class="created">Created</th><% end %>
 		    <th class="deadline">Deadline</th>
 		    <th class="status">Complete</th>
-		    <th colspan="3" class="options">Options</th>    
+		    <th colspan="2" class="options">Options</th> 
+		    <th class="delete">Delete</th>   
 		  </tr>
 		 </thead>
 		<tbody>		
@@ -36,8 +37,9 @@
 			    <% if (show_created_at) %><td class="created"><%= task.created_at.strftime("%d %b %Y, %H:%M") %></td><% end %>
 			    <td class="deadline"><%= task.deadline.strftime("%d %b %Y, %H:%M") %></td>
 			    <td class="status"><%= check_box_tag("completed_task_ids[]", task.id, task.complete?)  %></td>
+				<td class="option"><%= link_to 'View', task_path(task) %></td>
 			    <td class="option"><%= link_to 'Edit', edit_task_path(task) %></td>
-			    <td class="option"><%= render 'shared/destroy_task', :task => @task %></td>
+			    <td class="delete"><%= check_box_tag("delete_task_ids[]", task.id, false)  %></td>
 			  </tr>
 			<% end %>	
 		</tbody>

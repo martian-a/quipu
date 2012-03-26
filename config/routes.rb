@@ -6,6 +6,7 @@ Quipu::Application.routes.draw do
   match "tasks/incomplete", :to => "tasks#incomplete", :as => :incomplete_tasks
   match "tasks/update", :to => "tasks#update_collection", :as => :update_tasks
   resources :tasks
+  
 
   root :to => 'tasks#incomplete'
 end
