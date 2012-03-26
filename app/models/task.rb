@@ -36,5 +36,11 @@ class Task < ActiveRecord::Base
       ]
     )
   end
-
+  
+  # Updates the complete/incomplete status of a batch of tasks
+  def self.batch_status_update(batch_ids, completed_task_ids)
+      Task.update_all(["complete=?", false], :id => batch_ids)     
+      Task.update_all(["complete=?", true], :id => completed_task_ids)
+  end
+  
 end

@@ -1,23 +1,46 @@
-<table class="tasks">
-	<thead>
-	  <tr>
-	    <th class="summary">Summary</th>
-	    <% if (show_created_at) %><th class="created">Created</th><% end %>
-	    <th class="deadline">Deadline</th>
-	    <% if (show_status) %><th class="status">Complete</th><% end %>
-	    <th colspan="3" class="options">Options</th>    
-	  </tr>
-	 </thead>
-	<tbody>
-		<% @tasks.each do |task| %>
+<%= form_tag update_tasks_path, :method => :put do %>	
+
+	<% if !notice.nil? %>
+		<section id="notices">
+			<p class="notice"><%= notice %></p>
+		</section>
+	<% end %>
+
+	<p><%= submit_tag "Update" %></p>	
+	<table class="tasks">
+		<thead>
 		  <tr>
-		    <td class="summary"><%= link_to task.summary, task %></td>
-		    <% if (show_created_at) %><td class="created"><%= task.created_at.strftime("%d %b %Y, %H:%M") %></td><% end %>
-		    <td class="deadline"><%= task.deadline.strftime("%d %b %Y, %H:%M") %></td>
-		    <% if (show_status) %><td class="status"><%= yesno(task.complete?) %></td><% end %>
-		    <td class="option"><%= link_to 'Edit', edit_task_path(task) %></td>
-		    <td class="option"><%= render 'shared/destroy_task', :task => @task %></td>
+		    <th class="summary">Summary</th>
+		    <% if (show_created_at) %><th class="created">Created</th><% end %>
+		    <th class="deadline">Deadline</th>
+		    <th class="status">Complete</th>
+		    <th colspan="3" class="options">Options</th>    
 		  </tr>
-		<% end %>	
-	</tbody>
-</table>
+		 </thead>
+		<tbody>		
+			<% @tasks.each do |task| %>
+			  <tr>
+			    <td class="summary">
+			    	<%= link_to task.summary, task %>
+			    	<%= hidden_field_tag("batch_ids[]", task.id) %>
+		    		<% if task.errors.any? %>
+						<div class="error">
+							<h1><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h1>
+							<ul>
+								<% task.errors.full_messages.each do |msg| %>
+									<li><%= msg %></li>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+			    </td>
+			    <% if (show_created_at) %><td class="created"><%= task.created_at.strftime("%d %b %Y, %H:%M") %></td><% end %>
+			    <td class="deadline"><%= task.deadline.strftime("%d %b %Y, %H:%M") %></td>
+			    <td class="status"><%= check_box_tag("completed_task_ids[]", task.id, task.complete?)  %></td>
+			    <td class="option"><%= link_to 'Edit', edit_task_path(task) %></td>
+			    <td class="option"><%= render 'shared/destroy_task', :task => @task %></td>
+			  </tr>
+			<% end %>	
+		</tbody>
+	</table>
+<% end %>

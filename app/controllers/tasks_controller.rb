@@ -64,6 +64,19 @@ class TasksController < ApplicationController
       end
     end
   end
+  
+  # PUT /tasks/update
+  # PUT /tasks/update.json
+  def update_collection
+      
+    Task.batch_status_update(params[:batch_ids], params[:completed_task_ids])
+    flash[:notice] = "Update complete."
+      
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+    end    
+  end
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
