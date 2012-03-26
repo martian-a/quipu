@@ -6,8 +6,7 @@
 		</section>
 	<% end %>
 
-	<p><%= submit_tag "Update" %></p>	
-	<table class="tasks">
+	<table class="tasks" width="100%">
 		<thead>
 		  <tr>
 		    <th class="summary">Summary</th>
@@ -43,4 +42,10 @@
 			<% end %>	
 		</tbody>
 	</table>
+	<fieldset class="actions">
+		<legend>Options</legend>
+		<ul>
+			<li><%= submit_tag "Update" %></li>
+		</ul>		
+	</fieldset>
 <% end %>

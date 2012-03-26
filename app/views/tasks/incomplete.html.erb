@@ -1,4 +1,8 @@
 <% title "To Do" %>
 
 <h1 class="page-title"><%= yield(:title) %></h1>
-<%= render 'shared/task_list', :tasks => @tasks %>
+<% if @tasks.nil? || @tasks.count < 1 %>	
+	<p>Congratulations! Your task list is empty.</p>
+<% else %>
+	<%= render 'shared/task_list', :tasks => @tasks %>
+<% end %>

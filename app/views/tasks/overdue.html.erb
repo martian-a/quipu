@@ -1,4 +1,8 @@
 <% title "Overdue Tasks" %>
 
 <h1 class="page-title"><%= yield(:title) %></h1>
-<%= render 'shared/task_list', :tasks => @tasks %>
+<% if @tasks.nil? || @tasks.count < 1 %>	
+	<p>Congratulations! You have no overdue tasks.</p>
+<% else %>
+	<%= render 'shared/task_list', :tasks => @tasks %>
+<% end %>
